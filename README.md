@@ -14,6 +14,43 @@ Create User:
   }
 ```
 
+Login:
+
+```
+  mutation {
+    login(email: "avid@gmail.com", password: "12345") {
+      token
+      user {
+        _id
+        username
+      }
+    }
+  }
+```
+
+Delete User:
+
+```
+  mutation {
+    removeUser(userId: "61742c1827db1e3b9c676aa6") {
+        _id
+        username
+    }
+  }
+```
+
+Add Book to User Collection:
+
+```
+  mutation addBook($profileId: ID!, $skill: String!) {
+    addBook(profileId: $profileId, skill: $skill) {
+      _id
+      name
+      skills
+    }
+  }
+```
+
 ## Your Task
 
 Your assignment this week is emblematic of the fact that most modern websites are driven by two things: data and user demands. This shouldn't come as a surprise, as the ability to personalize user data is the cornerstone of real-world web development today. And as user demands evolve, applications need to be more performant.

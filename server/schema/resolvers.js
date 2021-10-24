@@ -17,33 +17,47 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        // login: async (parent, { email, password }) => {
-        //     const user = await User.findOne({ email });
-        //     if (!user) {
-        //         throw new AuthenticationError("No user with this email found!");
-        //     }
-        //     const correctPw = await user.isCorrectPassword(password);
-        //     if (!correctPw) {
-        //         throw new AuthenticationError("Incorrect password!");
-        //     }
-        //     const token = signToken(user);
-        //     return { token, user };
-        // },
-        // addBook: async (parent, { userId, skill }) => {
-        //     return user.findOneAndUpdate(
-        //         { _id: userId },
-        //         {
-        //             $addToSet: { skills: skill },
-        //         },
-        //         {
-        //             new: true,
-        //             runValidators: true,
-        //         }
-        //     );
-        // },
-        // removeUser: async (parent, { userId }) => {
-        //     return User.findOneAndDelete({ _id: userId });
-        // },
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+            if (!user) {
+                throw new AuthenticationError("No user with this email found!");
+            }
+            const correctPw = await user.isCorrectPassword(password);
+            if (!correctPw) {
+                throw new AuthenticationError("Incorrect password!");
+            }
+            const token = signToken(user);
+            return { token, user };
+        },
+        addBook: async (parent, { userId, book }) => {
+            console.log(book);
+
+            User.findOneAndUpdate(
+                { _id: userId },
+                { $push: { Books: "objFriends" } },
+                function (error, success) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log(success);
+                    }
+                }
+            );
+
+            // return User.findOneAndUpdate(
+            //     { _id: userId },
+            //     {
+            //         $addToSet: { Books: { description: "t1" } },
+            //     },
+            //     {
+            //         new: true,
+            //         runValidators: true,
+            //     }
+            // );
+        },
+        removeUser: async (parent, { userId }) => {
+            return User.findOneAndDelete({ _id: userId });
+        },
         // removeBook: async (parent, { userId, skill }) => {
         //     return User.findOneAndUpdate(
         //         { _id: userId },
