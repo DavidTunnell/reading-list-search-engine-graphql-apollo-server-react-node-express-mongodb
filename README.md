@@ -3,19 +3,19 @@
 Get User:
 
 ```
-query Query {
-  users {
-    _id
-    username
-    email
-    password
-    savedBooks {
-        authors
-        description
-        bookId
-        image
-        link
-        title
+query {
+  user(userId: "6175968953cf7f1e50489e24") {
+        _id
+        username
+        email
+        password
+        savedBooks {
+            authors
+            description
+            bookId
+            image
+            link
+            title
     }
   }
 }
@@ -30,7 +30,14 @@ query Query {
     username
     email
     password
-    savedBooks
+    savedBooks {
+        authors
+        description
+        bookId
+        image
+        link
+        title
+    }
   }
 }
 ```
@@ -53,7 +60,7 @@ Login:
 
 ```
   mutation {
-    login(email: "avid@gmail.com", password: "12345") {
+    login(email: "david@gmail.com", password: "12345") {
       token
       user {
         _id
