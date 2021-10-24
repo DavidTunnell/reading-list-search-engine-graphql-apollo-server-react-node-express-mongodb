@@ -55,13 +55,13 @@ const resolvers = {
         removeUser: async (parent, { userId }) => {
             return User.findOneAndDelete({ _id: userId });
         },
-        // removeBook: async (parent, { userId, skill }) => {
-        //     return User.findOneAndUpdate(
-        //         { _id: userId },
-        //         { $pull: { skills: skill } },
-        //         { new: true }
-        //     );
-        // },
+        removeBook: async (parent, { userId, bookId }) => {
+            return User.findOneAndUpdate(
+                { _id: userId },
+                { $pull: { savedBooks: { _id: bookId } } },
+                { new: true }
+            );
+        },
     },
 };
 

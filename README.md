@@ -105,6 +105,27 @@ Add Book to User Collection:
   }
 ```
 
+Remove a Book from User Collection:
+
+```
+  mutation {
+    removeBook(userId: "6175af033c74263a788b3daa", bookId: "6175af203c74263a788b3dad") {
+      _id
+      username
+      email
+      savedBooks {
+        _id
+        authors
+        description
+        image
+        link
+        title
+        bookId
+      }
+    }
+  }
+```
+
 ## Your Task
 
 Your assignment this week is emblematic of the fact that most modern websites are driven by two things: data and user demands. This shouldn't come as a surprise, as the ability to personalize user data is the cornerstone of real-world web development today. And as user demands evolve, applications need to be more performant.
