@@ -29,21 +29,18 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addBook: async (parent, { userId, book }) => {
-            console.log(book);
-
-            // User.findOneAndUpdate(
-            //     { _id: userId },
-            //     { $push: { savedBooks: "objFriends" } },
-            //     function (error, success) {
-            //         if (error) {
-            //             console.log(error);
-            //         } else {
-            //             console.log(success);
-            //         }
-            //     }
-            // );
-
+        addBook: async (
+            parent,
+            { userId, authors, description, bookId, image, link, title }
+        ) => {
+            const book = {
+                authors,
+                description,
+                bookId,
+                image,
+                link,
+                title,
+            };
             return User.findOneAndUpdate(
                 { _id: userId },
                 {

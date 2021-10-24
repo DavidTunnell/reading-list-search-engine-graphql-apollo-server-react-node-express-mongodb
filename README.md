@@ -1,5 +1,40 @@
 # 21 MERN: Book Search Engine
 
+Get User:
+
+```
+query Query {
+  users {
+    _id
+    username
+    email
+    password
+    savedBooks {
+        authors
+        description
+        bookId
+        image
+        link
+        title
+    }
+  }
+}
+```
+
+Get Users:
+
+```
+query Query {
+  users {
+    _id
+    username
+    email
+    password
+    savedBooks
+  }
+}
+```
+
 Create User:
 
 ```
@@ -42,11 +77,23 @@ Delete User:
 Add Book to User Collection:
 
 ```
-  mutation addBook($profileId: ID!, $skill: String!) {
-    addBook(profileId: $profileId, skill: $skill) {
+  mutation {
+    addBook(userId: "6175968953cf7f1e50489e24", authors: ["author 1", "author 2"],
+                description: "my desc!!!2333322",
+                bookId: "198213bd8GHJYd8",
+                image: "https://i.imgur.com/rRjEFGd.jpeg",
+                link: "https://www.google.com",
+                title: "my ti333tle!!!22354",) {
       _id
-      name
-      skills
+      username
+      savedBooks {
+        authors
+        description
+        bookId
+        image
+        link
+        title
+      }
     }
   }
 ```
