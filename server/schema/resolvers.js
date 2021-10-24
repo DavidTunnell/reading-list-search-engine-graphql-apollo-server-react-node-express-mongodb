@@ -32,28 +32,28 @@ const resolvers = {
         addBook: async (parent, { userId, book }) => {
             console.log(book);
 
-            User.findOneAndUpdate(
-                { _id: userId },
-                { $push: { Books: "objFriends" } },
-                function (error, success) {
-                    if (error) {
-                        console.log(error);
-                    } else {
-                        console.log(success);
-                    }
-                }
-            );
-
-            // return User.findOneAndUpdate(
+            // User.findOneAndUpdate(
             //     { _id: userId },
-            //     {
-            //         $addToSet: { Books: { description: "t1" } },
-            //     },
-            //     {
-            //         new: true,
-            //         runValidators: true,
+            //     { $push: { savedBooks: "objFriends" } },
+            //     function (error, success) {
+            //         if (error) {
+            //             console.log(error);
+            //         } else {
+            //             console.log(success);
+            //         }
             //     }
             // );
+
+            return User.findOneAndUpdate(
+                { _id: userId },
+                {
+                    $addToSet: { savedBooks: book },
+                },
+                {
+                    new: true,
+                    runValidators: true,
+                }
+            );
         },
         removeUser: async (parent, { userId }) => {
             return User.findOneAndDelete({ _id: userId });
