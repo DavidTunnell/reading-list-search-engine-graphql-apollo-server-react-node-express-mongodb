@@ -1,10 +1,33 @@
 # Reading List Search Engine - GraphQL, Apollo Server, React, Node, Express, MongoDB
 
-AS AN avid reader
-I WANT to search for new books to read
-SO THAT I can keep a list of books to purchase
+A Fullstack MERN search engine that can be used to find potential books to read. Users can create an account, search for books and save them to a personal list for future reference.
 
-4. Deploy your application to Heroku with a MongoDB database using MongoDB Atlas. Use the [Deploy with Heroku and MongoDB Atlas](https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-heroku-and-mongodb-atlas) walkthrough for instructions.
+[A live demo can be found here.](https://whispering-waters-56314.herokuapp.com/)
+
+This project uses the following technologies/libraries.
+
+-   [GraphQL](https://graphql.org/) as an API querying language
+-   [Apollo-Server-Express](https://www.npmjs.com/package/apollo-server-express) to Run a spec-compliant GraphQL Server with Express
+-   [@apollo/client](https://www.npmjs.com/package/@apollo/client) to Work with GraphQL on the React App
+-   [Google Books API](https://developers.google.com/books) to Query a Large Database of Books
+-   [Bcrypt Package](https://www.npmjs.com/package/bcrypt) for Password Hashing and Management
+-   [React](https://reactjs.org/) as a Fast and Powerful Frontend
+-   [React-Router-Dom](https://www.npmjs.com/package/react-router-dom) for URL routing, URL parameters, Browser History Stack Usage, and Linking without Calling the Server
+-   [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) as a CSS Framework
+-   [Node.js](https://nodejs.org/en/) and [Express.js](https://expressjs.com/) as the Server for API and HTTP Requests and Serving the React Build Directory Frontend
+-   [MongoDB](https://www.mongodb.com/) as a NoSQL Database
+-   [Mongoose](https://mongoosejs.com/) for [Object Relational Mapping](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping), Database Interaction, [Routing](https://expressjs.com/en/guide/routing.html) and Collection Generation and Seeding
+-   [Nodemon](https://nodemon.io/) for More Pleasant Node.js Development
+
+## Installation
+
+The client and server are two discrete applications. After cloning the repo, simply run `npm install` to get the packages for both the client and server. Then run `npm run dev` to run both the Node sever using Nodemon and the React Client using it's built in dev server. You need to install Concurrently for this command to work. It can be installed with `npm install -g concurrently`. The `npm run start` command is used when deploying the applications to a server.
+
+The application will be available by default at `http://localhost:3000/` and API will be at `http://localhost:3001/graphql` if you are using a local development environment. It's assumed you already have MongoDB running on your development computer.
+
+## GraphQL API
+
+Followed are example queries and mutations that can be run directly against the server.
 
 Get User:
 
@@ -154,7 +177,3 @@ Remove a Book from User Collection:
     }
   }
 ```
-
-# Installation
-
--   for dev: http://localhost:3000/ -react and http://localhost:3001/graphql API server
