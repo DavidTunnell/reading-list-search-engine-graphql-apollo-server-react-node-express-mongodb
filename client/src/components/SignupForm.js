@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 
-import { createUser } from "../utils/API";
 import Auth from "../utils/auth";
 
 import { useQuery, useMutation } from "@apollo/client";
@@ -37,7 +36,6 @@ const SignupForm = () => {
         }
 
         try {
-            const response = await createUser(userFormData);
             const { data } = await addUser({
                 variables: { ...userFormData },
             });

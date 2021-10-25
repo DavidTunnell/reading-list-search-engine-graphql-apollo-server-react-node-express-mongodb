@@ -18,3 +18,22 @@ export const GET_USERS = gql`
         }
     }
 `;
+
+export const GET_USER = gql`
+    query Query($userId: ID!) {
+        user(userId: $userId) {
+            _id
+            username
+            email
+            password
+            savedBooks {
+                authors
+                description
+                bookId
+                image
+                link
+                title
+            }
+        }
+    }
+`;
