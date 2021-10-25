@@ -84,25 +84,48 @@ Delete User:
 Add Book to User Collection:
 
 ```
-  mutation {
-    addBook(userId: "6175968953cf7f1e50489e24", authors: ["author 1", "author 2"],
-                description: "my desc!!!2333322",
-                bookId: "198213bd8GHJYd8",
-                image: "https://i.imgur.com/rRjEFGd.jpeg",
-                link: "https://www.google.com",
-                title: "my ti333tle!!!22354",) {
-      _id
-      username
-      savedBooks {
-        authors
-        description
-        bookId
-        image
-        link
-        title
-      }
+    mutation addBook(
+        $userId: ID!
+        $authors: [String]!
+        $description: String!
+        $bookId: String!
+        $image: String!
+        $link: String!
+        $title: String!
+    ) {
+        addBook(
+            userId: $userId
+            authors: $authors
+            description: $description
+            bookId: $bookId
+            image: $image
+            link: $link
+            title: $title
+        ) {
+            _id
+            username
+            email
+            savedBooks {
+                authors
+                description
+                image
+                link
+                title
+                bookId
+            }
+        }
     }
-  }
+ #Variables:
+ {
+  "userId": "61760fc0a918b06780bb9580",
+  "authors": ["2"],
+  "description": "2",
+  "bookId": "2",
+  "image": "2",
+  "link": "2",
+  "title": "2"
+}
+
 ```
 
 Remove a Book from User Collection:

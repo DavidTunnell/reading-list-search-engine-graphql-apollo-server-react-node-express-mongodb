@@ -41,6 +41,8 @@ const resolvers = {
                 link,
                 title,
             };
+            console.log(book);
+
             return User.findOneAndUpdate(
                 { _id: userId },
                 {
