@@ -20,11 +20,8 @@ const SavedBooks = () => {
     const { loading, error, data } = useQuery(GET_USER, {
         variables: { userId: Auth.getProfile().data._id },
     });
-
-    console.log("-----------------");
-    console.log(data);
-    console.log("-----------------");
     useEffect(() => {
+        setUserData(data?.user || []);
         // const getUserData = async () => {
         //     try {
         //         const token = Auth.loggedIn() ? Auth.getToken() : null;
