@@ -71,7 +71,6 @@ const SearchBooks = () => {
 
         // get token
         const token = Auth.loggedIn() ? Auth.getToken() : null;
-
         if (!token) {
             return false;
         }
@@ -79,7 +78,7 @@ const SearchBooks = () => {
         try {
             await addBook({
                 variables: {
-                    userId: "61760fc0a918b06780bb9580",
+                    userId: Auth.getProfile().data._id,
                     authors: bookToSave.authors,
                     description: bookToSave.description,
                     bookId: bookToSave.bookId,
