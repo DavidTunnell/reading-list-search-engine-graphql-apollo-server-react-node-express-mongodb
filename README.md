@@ -177,3 +177,18 @@ Remove a Book from User Collection:
     }
   }
 ```
+
+# Screenshots
+
+## Homepage / Book Search
+
+![Homepage](./assets/homepage.png)
+
+## Signup / Login
+
+![Homepage](./assets/signup.png)
+![Homepage](./assets/login.png)
+
+## Reading List
+
+![Homepage](./assets/list.png)
