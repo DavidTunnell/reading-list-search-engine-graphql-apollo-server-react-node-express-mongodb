@@ -6,8 +6,8 @@ A Fullstack MERN search engine that can be used to find potential books to read.
 
 This project uses the following technologies/libraries.
 
--   [GraphQL](https://graphql.org/) as an API querying language
--   [Apollo-Server-Express](https://www.npmjs.com/package/apollo-server-express) to Run a spec-compliant GraphQL Server with Express
+-   [GraphQL](https://graphql.org/) as an API Querying Language
+-   [Apollo-Server-Express](https://www.npmjs.com/package/apollo-server-express) to Run a Spec-Compliant GraphQL Server with Express
 -   [@apollo/client](https://www.npmjs.com/package/@apollo/client) to Work with GraphQL on the React App
 -   [Google Books API](https://developers.google.com/books) to Query a Large Database of Books
 -   [Bcrypt Package](https://www.npmjs.com/package/bcrypt) for Password Hashing and Management
